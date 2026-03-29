@@ -2,9 +2,8 @@ name: 카카오뱅크 입찰공고 모니터링
 
 on:
   schedule:
-    # 매주 월요일 오전 9시 (KST) = 일요일 자정 (UTC)
     - cron: '0 0 * * 1'
-  workflow_dispatch: # 수동 실행 가능
+  workflow_dispatch:
 
 jobs:
   check-bidding:
@@ -24,8 +23,9 @@ jobs:
       - name: 의존성 설치
         run: pip install -r requirements.txt
 
-      - name: 입찰공고 모니터링 실행
+      - name: 페이지 구조 디버그
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python monitor.py
+        run: python debug_page.py
+
