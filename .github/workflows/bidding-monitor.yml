@@ -23,9 +23,9 @@ jobs:
       - name: 의존성 설치
         run: pip install -r requirements.txt
 
-      - name: 페이지 구조 디버그
+      - name: 입찰공고 모니터링 실행
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python debug_page.py
+        run: python monitor.py
 
